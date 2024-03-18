@@ -1,0 +1,21 @@
+const axios = require('axios');
+let data = '{\n    "company": "Company Name",\n    "currentPrice": ,\n    "accountNumber": ,\n    "githubRepoLink": " https://github.com/tanya010903/abcd/blob/main/code"\n}';
+
+let config = {
+  method: 'post',
+  maxBodyLength: Infinity,
+  url: 'https://customer-analytics-34146.my.salesforce-sites.com/services/apexrest/buyStocks',
+  headers: { 
+    'Content-Type': 'application/json', 
+    'Cookie': 'BrowserId=b4YJP-ULEe6OF9Vmbon52Q; CookieConsentPolicy=0:1; LSKey-c$CookieConsentPolicy=0:1'
+  },
+  data : data
+};
+
+axios.request(config)
+.then((response) => {
+  console.log(JSON.stringify(response.data));
+})
+.catch((error) => {
+  console.log(error);
+});
